@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cos'è la Filter Bubble?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            background-image: url('https://via.placeholder.com/1600x900.png?text=Background+Image'); /* Immagine di sfondo */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            overflow: hidden;
+            width: 0;
+            white-space: nowrap;
+            border-right: 3px solid #fff;
+            animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        /* Animazione del titolo */
+        @keyframes typing {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 40px 0;
+            background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco trasparente */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: -30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        p, ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #555;
+            transform: translateY(-3px);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        form input,
+        form textarea {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: #ffcc00;
+            outline: none;
+        }
+
+        form button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #3d3d3d;
+        }
+
+        footer {
+            background-color: #343434;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffcc00;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Scopri la Filter Bubble</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cos'è">Cos'è</a></li>
+                    <li><a href="#conseguenze">Conseguenze</a></li>
+                    <li><a href="#rompere">Come Rompere</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2>Benvenuto nel mondo della Filter Bubble</h2>
+                <p>Scopri come i contenuti che consumiamo online sono influenzati dagli algoritmi e cosa significa questo per la nostra visione del mondo.</p>
+                <a href="#cos'è" class="cta-button">Scopri di più</a>
+            </div>
+        </section>
+
+        <section id="cos'è">
+            <div class="container">
+                <h2>Cos'è la Filter Bubble?</h2>
+                <p>La Filter Bubble è un concetto introdotto dal giornalista Eli Pariser per descrivere il fenomeno in cui le piattaforme online, come i motori di ricerca e i social media, filtrano i contenuti che vediamo in base alle nostre preferenze e comportamenti precedenti, creando una visione ristretta e parziale della realtà.</p>
+                <p>Questo significa che, mentre navighiamo su internet, ci vengono mostrati solo i contenuti che corrispondono alle nostre opinioni e interessi, mentre quelli che potrebbero sfidarli o ampliarli vengono nascosti.</p>
+            </div>
+        </section>
+
+        <section id="conseguenze">
+            <div class="container">
+                <h2>Le Conseguenze Sociali della Filter Bubble</h2>
+                <p>La Filter Bubble non è solo un fenomeno tecnologico, ma ha impatti profondi sulla società e sulla nostra vita quotidiana:</p>
+                <ul>
+                    <li><strong>Polarizzazione ideologica:</strong> Le persone si trovano isolate in bolle ideologiche, dove sentono solo opinioni simili alle loro, creando una crescente divisione tra gruppi diversi.</li>
+                    <li><strong>Conflitti sociali:</strong> L'esposizione selettiva alle informazioni porta a incomprensioni e a conflitti tra gruppi, poiché le persone non sono più in grado di comprendere e accettare le opinioni altrui.</li>
+                    <li><strong>Diffusione di disinformazione:</strong> Le fake news tendono a proliferare nelle bolle, poiché gli utenti tendono a interagire con contenuti che confermano le loro convinzioni.</li>
+                    <li><strong>Erosione della democrazia:</strong> Una popolazione che vede solo una parte della realtà è meno preparata a prendere decisioni informate su temi cruciali come la politica, la salute pubblica e i diritti civili.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="rompere">
+            <div class="container">
+                <h2>Come Rompere la Filter Bubble</h2>
+                <p>Esistono diversi modi per riconoscere e contrastare gli effetti della Filter Bubble:</p>
+                <ul>
+                    <li><strong>Cerca attivamente punti di vista diversi:</strong> Prova a esplorare contenuti che sfidano le tue opinioni e pregiudizi. Usa motori di ricerca alternativi come DuckDuckGo, che non tracciano le tue ricerche.</li>
+                    <li><strong>Segui fonti di informazione diverse:</strong> Non limitarti a una sola fonte di notizie. Cerca di seguire una varietà di siti, blog e canali con opinioni diverse.</li>
+                    <li><strong>Riflettere criticamente:</strong> Non accettare tutto ciò che vedi online come verità assoluta. Impara a fare domande e verifica le informazioni prima di condividerle.</li>
+                    <li><strong>Usa gli strumenti di trasparenza degli algoritmi:</strong> Alcuni social media e motori di ricerca offrono strumenti che ti permettono di vedere come vengono filtrati i contenuti. Sfrutta queste opzioni per capire meglio il processo di selezione.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contatti">
+            <div class="container">
+                <h2>Contattaci</h2>
+                <form id="contact-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Messaggio:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Invia</button>
+                </form>
+                <div id="form-response"></div>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sensibilizzazione sulla Filter Bubble</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impedisce il comportamento predefinito del form (invio)
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                document.getElementById("form-response").innerHTML = "<p>Grazie per averci contattato, " + name + "! Risponderemo presto.</p>";
+                document.getElementById("contact-form").reset();
+            } else {
+                document.getElementById("form-response").innerHTML = "<p style='color: red;'>Tutti i campi sono obbligatori.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
