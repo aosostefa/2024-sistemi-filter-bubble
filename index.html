@@ -1,218 +1,12 @@
-<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cos'è la Filter Bubble?</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            background-image: url('https://via.placeholder.com/1600x900.png?text=Background+Image'); /* Immagine di sfondo */
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        header {
-            background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #fff;
-            overflow: hidden;
-            width: 0;
-            white-space: nowrap;
-            border-right: 3px solid #fff;
-            animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
-        }
-
-        /* Animazione del titolo */
-        @keyframes typing {
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ff0000;
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 40px 0;
-            background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco trasparente */
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            margin-top: -30px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
-        }
-
-        p, ul {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            background-color: #333;
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            display: inline-block;
-            text-align: center;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #555;
-            transform: translateY(-3px);
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form label {
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        form input,
-        form textarea {
-            padding: 12px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            transition: border-color 0.3s ease;
-        }
-
-        form input:focus,
-        form textarea:focus {
-            border-color: #ffcc00;
-            outline: none;
-        }
-
-        form button {
-            background-color: #333;
-            color: #fff;
-            padding: 12px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #3d3d3d;
-        }
-
-        footer {
-            background-color: #343434;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        footer p {
-            font-size: 1rem;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #ffcc00;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 </head>
 <body>
     <header>
@@ -223,7 +17,9 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#cos'è">Cos'è</a></li>
                     <li><a href="#conseguenze">Conseguenze</a></li>
-                    <li><a href="#rompere">Come Rompere</a></li>
+                    <li><a href="#rompere">Come Romperla</a></li>
+                    <li><a href="#statistiche">Statistiche</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
                     <li><a href="#contatti">Contatti</a></li>
                 </ul>
             </nav>
@@ -234,7 +30,7 @@
         <section id="home">
             <div class="container">
                 <h2>Benvenuto nel mondo della Filter Bubble</h2>
-                <p>Scopri come i contenuti che consumiamo online sono influenzati dagli algoritmi e cosa significa questo per la nostra visione del mondo.</p>
+                <p>Scopri come i contenuti che consumiamo online sono influenzati dagli algoritmi e cosa significa questo per la nostra visione del mondo. Impara come la tecnologia stia cambiando il nostro modo di relazionarci con le informazioni e le persone, senza che ne siamo completamente consapevoli.</p>
                 <a href="#cos'è" class="cta-button">Scopri di più</a>
             </div>
         </section>
@@ -242,20 +38,22 @@
         <section id="cos'è">
             <div class="container">
                 <h2>Cos'è la Filter Bubble?</h2>
-                <p>La Filter Bubble è un concetto introdotto dal giornalista Eli Pariser per descrivere il fenomeno in cui le piattaforme online, come i motori di ricerca e i social media, filtrano i contenuti che vediamo in base alle nostre preferenze e comportamenti precedenti, creando una visione ristretta e parziale della realtà.</p>
-                <p>Questo significa che, mentre navighiamo su internet, ci vengono mostrati solo i contenuti che corrispondono alle nostre opinioni e interessi, mentre quelli che potrebbero sfidarli o ampliarli vengono nascosti.</p>
+                <p>La Filter Bubble è un concetto introdotto dal giornalista Eli Pariser nel 2011 per descrivere il fenomeno in cui le piattaforme online, come i social media e i motori di ricerca, personalizzano i contenuti che ci vengono mostrati in base alle nostre preferenze, alle nostre interazioni passate e ai nostri comportamenti online.</p>
+                <p>Questa personalizzazione ha l'effetto di crearci una "bolla" informativa che ci isola, mostrandoci solo contenuti che ci confermano le nostre opinioni, senza mai sfidarci con idee o prospettive diverse. Questo può ridurre la nostra comprensione della realtà e contribuire a un atteggiamento sempre più polarizzato nei confronti degli altri.</p>
+                <p><strong>Perché è pericolosa?</strong> Sebbene l'algoritmo che personalizza i contenuti possa sembrare positivo, in realtà ci priva di una visione completa e variegata del mondo, rendendoci vulnerabili alla manipolazione e alla disinformazione.</p>
             </div>
         </section>
 
         <section id="conseguenze">
             <div class="container">
                 <h2>Le Conseguenze Sociali della Filter Bubble</h2>
-                <p>La Filter Bubble non è solo un fenomeno tecnologico, ma ha impatti profondi sulla società e sulla nostra vita quotidiana:</p>
+                <p>Le conseguenze della Filter Bubble non sono limitate solo alla nostra esperienza online. Esse hanno un impatto significativo sulla società e sulle nostre interazioni quotidiane, contribuendo a creare divisioni sociali e politiche. Ecco alcune delle principali conseguenze:</p><br>
                 <ul>
-                    <li><strong>Polarizzazione ideologica:</strong> Le persone si trovano isolate in bolle ideologiche, dove sentono solo opinioni simili alle loro, creando una crescente divisione tra gruppi diversi.</li>
-                    <li><strong>Conflitti sociali:</strong> L'esposizione selettiva alle informazioni porta a incomprensioni e a conflitti tra gruppi, poiché le persone non sono più in grado di comprendere e accettare le opinioni altrui.</li>
-                    <li><strong>Diffusione di disinformazione:</strong> Le fake news tendono a proliferare nelle bolle, poiché gli utenti tendono a interagire con contenuti che confermano le loro convinzioni.</li>
-                    <li><strong>Erosione della democrazia:</strong> Una popolazione che vede solo una parte della realtà è meno preparata a prendere decisioni informate su temi cruciali come la politica, la salute pubblica e i diritti civili.</li>
+                    <li><strong>Polarizzazione ideologica:</strong> Le persone tendono a rimanere isolate in bolle ideologiche che rinforzano le proprie credenze, portando a un allontanamento tra gruppi con visioni politiche o culturali diverse.</li>
+                    <li><strong>Conflitti sociali:</strong> La percezione errata della realtà, alimentata da informazioni distorte o unilaterali, può alimentare conflitti e divisioni tra diverse comunità, creando incomprensioni e odio tra gruppi sociali.</li>
+                    <li><strong>Diffusione di disinformazione:</strong> Le bolle informative favoriscono la proliferazione di fake news e teorie del complotto, poiché gli algoritmi spingono contenuti che attirano l'attenzione e spesso sono sensazionalisti o parziali.</li>
+                    <li><strong>Erosione della democrazia:</strong> Le persone sono meno inclini a prendere decisioni politiche informate, poiché sono esposte solo a una visione distorta della realtà. Questo indebolisce la capacità di fare scelte basate su una comprensione completa e obiettiva degli eventi.</li>
+                    <li><strong>Manipolazione delle scelte personali:</strong> La Filter Bubble può influenzare le nostre decisioni d'acquisto, le opinioni politiche e anche le relazioni sociali. I contenuti che ci vengono proposti sono spesso progettati per manipolare le nostre emozioni e farci compiere scelte che favoriscono determinati interessi.</li>
                 </ul>
             </div>
         </section>
@@ -263,19 +61,43 @@
         <section id="rompere">
             <div class="container">
                 <h2>Come Rompere la Filter Bubble</h2>
-                <p>Esistono diversi modi per riconoscere e contrastare gli effetti della Filter Bubble:</p>
+                <p>Esistono diversi modi per contrastare gli effetti negativi della Filter Bubble. Ecco alcuni suggerimenti per liberarsi da questa "bolla" informativa e accedere a una visione più ampia e diversificata del mondo:</p><br>
                 <ul>
-                    <li><strong>Cerca attivamente punti di vista diversi:</strong> Prova a esplorare contenuti che sfidano le tue opinioni e pregiudizi. Usa motori di ricerca alternativi come DuckDuckGo, che non tracciano le tue ricerche.</li>
-                    <li><strong>Segui fonti di informazione diverse:</strong> Non limitarti a una sola fonte di notizie. Cerca di seguire una varietà di siti, blog e canali con opinioni diverse.</li>
-                    <li><strong>Riflettere criticamente:</strong> Non accettare tutto ciò che vedi online come verità assoluta. Impara a fare domande e verifica le informazioni prima di condividerle.</li>
-                    <li><strong>Usa gli strumenti di trasparenza degli algoritmi:</strong> Alcuni social media e motori di ricerca offrono strumenti che ti permettono di vedere come vengono filtrati i contenuti. Sfrutta queste opzioni per capire meglio il processo di selezione.</li>
+                    <li><strong>Cerca punti di vista diversi:</strong> Esplora contenuti che sfidano le tue opinioni. Iscriviti a canali e segui account che rappresentano visioni politiche, culturali o religiose diverse dalle tue.</li>
+                    <li><strong>Segui fonti varie:</strong> Informati da più siti e canali, compresi quelli che non condividono le tue opinioni. Leggi giornali, ascolta podcast e segui social media che ti espongono a contenuti diversificati.</li>
+                    <li><strong>Rifletti criticamente:</strong> Verifica sempre le informazioni prima di condividerle. Utilizza strumenti per la verifica dei fatti e cerca fonti affidabili per confermare le notizie che leggi online.</li>
+                    <li><strong>Utilizza strumenti di trasparenza:</strong> Approfondisci come funzionano gli algoritmi che personalizzano i contenuti e chiedi più trasparenza alle piattaforme online. Esplora anche strumenti che riducono l'influenza degli algoritmi, come estensioni del browser che bloccano contenuti personalizzati.</li>
+                    <li><strong>Educazione digitale:</strong> Impara a riconoscere la disinformazione e gli algoritmi di personalizzazione. Promuovi l'alfabetizzazione mediatica per comprendere meglio come i contenuti vengano manipolati per attrarre la tua attenzione.</li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="statistiche">
+            <div class="container">
+                <h2>Statistiche sull'impatto globale</h2>
+                <p>Secondo diversi studi, la Filter Bubble ha un impatto significativo sulla percezione della realtà a livello globale. Ecco alcune statistiche che evidenziano la diffusione di questo fenomeno in diverse regioni:</p>
+                <img src="filterBubble.png" alt="Grafico delle statistiche">
+                <!-- Canvas per grafico delle statistiche -->
+                <canvas id="statChart" width="400" height="200"></canvas>
+                <p class="note">Il grafico mostra la percentuale di utenti influenzati dalla Filter Bubble in base a recenti studi globali. È evidente che le percentuali sono più alte nelle regioni con maggiore accesso ai social media.</p>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <div class="container">
+                <h2>Metti alla prova le tue conoscenze!</h2>
+                <p>Ora che hai imparato di più sulla Filter Bubble, è il momento di testare le tue conoscenze con un quiz! Rispondi alle domande per vedere quanto ne sai davvero!</p>
+                <!-- Questo contenitore verrà aggiornato dinamicamente con le domande -->
+                <div id="quiz-container"></div>
+                <!-- Feedback per la risposta selezionata -->
+                <p id="quiz-feedback" class="quiz-feedback"></p>
             </div>
         </section>
 
         <section id="contatti">
             <div class="container">
                 <h2>Contattaci</h2>
+                <p>Hai domande o desideri saperne di più su come proteggerti dalla Filter Bubble? Contattaci e saremo felici di aiutarti!</p>
                 <form id="contact-form">
                     <label for="name">Nome:</label>
                     <input type="text" id="name" name="name" required>
@@ -290,36 +112,20 @@
                 </form>
                 <div id="form-response"></div>
 
-                <div class="social-icons">
-                    <a href="#" target="_blank">Facebook</a>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">Instagram</a>
-                </div>
+                <!-- Mappa interattiva -->
+                <div id="map"></div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Sensibilizzazione sulla Filter Bubble</p>
+            <p>&copy; 2024 Sensibilizzazione sulla Filter Bubble 5C infinito</p>
         </div>
     </footer>
 
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Impedisce il comportamento predefinito del form (invio)
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            if (name && email && message) {
-                document.getElementById("form-response").innerHTML = "<p>Grazie per averci contattato, " + name + "! Risponderemo presto.</p>";
-                document.getElementById("contact-form").reset();
-            } else {
-                document.getElementById("form-response").innerHTML = "<p style='color: red;'>Tutti i campi sono obbligatori.</p>";
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
